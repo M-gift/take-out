@@ -20,7 +20,24 @@ public interface EmployeeService {
 
     void save(EmployeeDTO employeeDTO);
 
+    /*
+    分页查询
+    */
     PageResult pageQuery(EmployeePageQueryDTO employeePageQueryDTO);
 
+    /*
+    更改员工状态
+    */
     void startOrStop(Integer status, Long id);
+
+    /*
+    根据id查询员工
+    */
+    Employee getById(Long id);
+
+    /**
+     * 修改员工信息
+     * @param employeeDTO
+     */
+    void update(EmployeeDTO employeeDTO);
 }

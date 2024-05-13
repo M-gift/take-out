@@ -99,4 +99,22 @@ public class EmployeeController {
         return Result.success();
     }
 
+    @GetMapping("/{id}")
+    @ApiOperation("根据id查询员工信息")
+    public Result<Employee> getById(@PathVariable Long id){
+        //id从请求的url上提取，加@PathVariable注解
+        //Result后有没有类型，取决于返回值需不需要，本函数返回的信息是Employee类的特性
+        log.info("根据id查询员工信息");
+        Employee employee = employeeService.getById(id);
+        return Result.success(employee);
+    }
+
+    @PutMapping
+    @ApiOperation("修改员工信息")
+    public Result update(@RequestBody EmployeeDTO employeeDTO){
+        log.info("修改员工信息");
+        employeeService.update(employeeDTO);
+        return Result.success();
+    }
+
 }
