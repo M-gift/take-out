@@ -7,8 +7,6 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
-import java.time.LocalDateTime;
-
 @Mapper
 public interface EmployeeMapper {
 
@@ -30,4 +28,6 @@ public interface EmployeeMapper {
 
     //分页查询
     Page<Employee> pageQuery(EmployeePageQueryDTO employeePageQueryDTO);
+
+    void update(Employee employee);
 }

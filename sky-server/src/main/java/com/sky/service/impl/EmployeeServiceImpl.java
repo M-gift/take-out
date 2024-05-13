@@ -103,4 +103,14 @@ public class EmployeeServiceImpl implements EmployeeService {
         return new PageResult(total,records);
     }
 
+    public void startOrStop(Integer status, Long id){
+        // 用构造器，新建一个变量，并给某些属性赋值
+        Employee employee = Employee.builder()
+                        .status(status)
+                        .id(id)
+                        .build();
+
+        employeeMapper.update(employee);
+    }
+
 }

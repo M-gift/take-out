@@ -89,4 +89,14 @@ public class EmployeeController {
         return Result.success(pageResult);
     }
 
+    @PostMapping("/status/{status}")  //Post方法用PostMapping！不要写错
+    @ApiOperation("员工状态启用禁用")
+    public Result startOrStop(@PathVariable Integer status, Long id){
+        //status,id从请求的url上提取，加@PathVariable注解
+        //Result后有没有类型，取决于返回值需不需要，本函数只需要处理好返回状态码即可，所以不需要
+        log.info("启用禁用员工状态：{}，{}",status,id);
+        employeeService.startOrStop(status,id);
+        return Result.success();
+    }
+
 }
